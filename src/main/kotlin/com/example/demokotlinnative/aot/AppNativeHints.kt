@@ -9,15 +9,15 @@ import org.springframework.aot.hint.RuntimeHintsRegistrar
 
 class AppNativeHints : RuntimeHintsRegistrar {
 
-    val log: Logger = LoggerFactory.getLogger(javaClass)
+    private val log: Logger = LoggerFactory.getLogger(javaClass)
 
     override fun registerHints(hints: RuntimeHints, classLoader: ClassLoader?) {
         log.info("Registering types")
 
         // Kotlin private methods are not detected and need to be registered.
-        // These are not exist actual "Method" type, they are KCallable
+        // Because they are not actual "Method" type, but KCallable
         hints.reflection()
-                .registerType(HelloController::class.java, *MemberCategory.values())
+                .registerType(HelloController::class.java, MemberCategory.INVOKE_DECLARED_METHODS)
     }
 
 }
