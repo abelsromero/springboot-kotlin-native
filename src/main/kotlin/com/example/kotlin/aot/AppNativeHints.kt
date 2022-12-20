@@ -1,6 +1,6 @@
-package com.example.demokotlinnative.aot
+package com.example.kotlin.aot
 
-import com.example.demokotlinnative.HelloController
+import com.example.kotlin.HelloController
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.aot.hint.MemberCategory

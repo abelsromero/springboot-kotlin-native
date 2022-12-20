@@ -1,6 +1,6 @@
 package com.example.demokotlinnative
 
-import com.example.demokotlinnative.openpi.OpenApiParser
+import com.example.kotlin.openpi.OpenApiParser
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired

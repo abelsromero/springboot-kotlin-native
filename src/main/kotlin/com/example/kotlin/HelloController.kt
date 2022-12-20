@@ -1,6 +1,6 @@
-package com.example.demokotlinnative
+package com.example.kotlin
 
-import com.example.demokotlinnative.openpi.OpenApiParser
+import com.example.kotlin.openpi.OpenApiParser
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.web.bind.annotation.GetMapping

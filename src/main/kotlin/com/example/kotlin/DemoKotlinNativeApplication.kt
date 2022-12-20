@@ -1,13 +1,13 @@
-package com.example.demokotlinnative
+package com.example.kotlin
 
-import com.example.demokotlinnative.aot.AppNativeHints
-import com.example.demokotlinnative.aot.ReflectionsRuntimeHintsRegistrar
+import com.example.kotlin.aot.AppNativeHints
+import com.example.kotlin.aot.ReflectionsRuntimeHintsRegistrar
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 import org.springframework.context.annotation.ImportRuntimeHints
 
 @SpringBootApplication
-@ImportRuntimeHints(AppNativeHints::class, ReflectionsRuntimeHintsRegistrar::class)
+//@ImportRuntimeHints(AppNativeHints::class, ReflectionsRuntimeHintsRegistrar::class)
 class DemoKotlinNativeApplication
 
 fun main(args: Array<String>) {

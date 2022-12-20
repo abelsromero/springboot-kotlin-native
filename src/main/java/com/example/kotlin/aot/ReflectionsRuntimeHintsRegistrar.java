@@ -1,4 +1,4 @@
-package com.example.demokotlinnative.aot;
+package com.example.kotlin.aot;
 
 import java.util.Set;
 

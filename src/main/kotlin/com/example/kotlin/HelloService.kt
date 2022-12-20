@@ -1,4 +1,4 @@
-package com.example.demokotlinnative
+package com.example.kotlin
 
 import org.springframework.stereotype.Component
 
