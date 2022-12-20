@@ -14,16 +14,14 @@ class AppNativeHints : RuntimeHintsRegistrar {
     override fun registerHints(hints: RuntimeHints, classLoader: ClassLoader?) {
         log.info("Registering types")
 
+        hints.resources()
+                .registerPattern("openapi-example.json")
+
         // Kotlin private methods are not detected and need to be registered.
         // Because they are not actual "Method" type, but KCallable
         hints.reflection()
                 .registerType(HelloController::class.java, MemberCategory.INVOKE_DECLARED_METHODS)
-    }
 
+    }
 }
-//
-//fun main(args: Array<String>) {
-//    val runtimeHints = RuntimeHints()
-//    AppNativeHints().registerHints(runtimeHints, null);
-//}
 
