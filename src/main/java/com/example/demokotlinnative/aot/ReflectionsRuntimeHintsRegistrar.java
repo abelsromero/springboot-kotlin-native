@@ -23,6 +23,10 @@ public class ReflectionsRuntimeHintsRegistrar implements RuntimeHintsRegistrar {
 
 	@Override
 	public void registerHints(RuntimeHints hints, ClassLoader classLoader) {
+		/**
+		 * This is an example, full OpenAPI processing in Native requires extra configurations.
+		 */
+
 		final var swaggerModels = reflectTypes("io.swagger.models");
 		register(hints, swaggerModels);
 

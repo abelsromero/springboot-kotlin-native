@@ -22,7 +22,7 @@ ext {
 
 dependencies {
 	// ISSUE: 'compileOnly' is not captured for processAot task
-	compileOnly 'org.reflections:reflections:0.10.2'
+	implementation 'org.reflections:reflections:0.10.2'
 
 	implementation 'org.springframework.boot:spring-boot-starter-webflux'
 	implementation 'com.fasterxml.jackson.module:jackson-module-kotlin'

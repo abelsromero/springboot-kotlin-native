@@ -1,8 +1,23 @@
 = Spring Boot Kotlin Native example (with Gradle)
 
-Simple showcase if Spring Boot Native compilation for Kotlin projects.
+Simple showcase of Spring Boot Native compilation for Kotlin projects.
 
 == Issues
+
+== Private methods in RestController(s) are not detected
+
+The class had to be explicitly added as a Hint (See class `AppNativeHints`).
+
+```kotlin
+hints.reflection()
+        .registerType(HelloController::class.java, MemberCategory.INVOKE_DECLARED_METHODS)
+```
+
+Private methods in `@Component` services are fine.
+
+
+NOTE: Private methods in Kotlin are `KCallable`, not normal Java `Method`.
+Trying to list it to only register it did not work.
 
 === compileOnly dependencies are not considered for processAot
 
@@ -44,16 +59,3 @@ Caused by: java.lang.ClassNotFoundException: org.reflections.Configuration
         at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:521)
         ... 20 more
 ```
-
-== Private methods in RestController are not detected
-
-The class had to be explicitly added as a Hint (See class `AppNativeHints`).
-
-```kotlin
-hints.reflection()
-        .registerType(HelloController::class.java, MemberCategory.INVOKE_DECLARED_METHODS)
-```
-
-
-NOTE: private methods in Kotlin are `KCallable`, not normal Java `Method`.
-Trying to list it to only register it did not work.

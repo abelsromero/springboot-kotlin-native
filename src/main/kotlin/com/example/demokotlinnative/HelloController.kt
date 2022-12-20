@@ -8,24 +8,24 @@ import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-class HelloController(val parser: OpenApiParser) {
+class HelloController(val parser: OpenApiParser, val service: HelloService) {
 
     val log: Logger = LoggerFactory.getLogger(javaClass)
 
     @GetMapping("/parse")
-    fun hello(): String {
+    fun parse(): String {
         val text = HelloController::class.java.getResource("/openapi-example.json").readText()
         val parsed = parser.parse(text)
         return parsed.toString()
     }
 
     @GetMapping("/hello/{username}")
-    fun hello(@PathVariable(required = true) username: String): ResponseMessage {
+    fun parse(@PathVariable(required = true) username: String): ResponseMessage {
         log.info("Input(s): $username")
         return formatBody(username)
     }
 
-    private fun formatBody(value: String) = ResponseMessage(value)
+    private fun formatBody(value: String) = ResponseMessage(service.hello(value))
 
     data class ResponseMessage(val message: String)
 }
